@@ -1,5 +1,7 @@
 @import "parts/_code.scss";
 @import "parts/_header.scss";
+@import "parts/_footer.scss";
+@import "parts/_taxonomies.scss";
 @import "parts/_image.scss";
 @import "parts/misc.scss";
 @import "parts/table.scss";
@@ -26,6 +28,7 @@ html {
   max-width: 944px;
   margin: 0 auto;
   padding: 0 24px;
+  padding-bottom: 4rem;
   word-wrap: break-word;
 }
 

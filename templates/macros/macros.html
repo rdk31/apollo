@@ -56,6 +56,35 @@
     </div>
 {% endmacro content %}
 
+{% macro page_footer(page) %}
+    <div class="post-footer">
+        {% if page.taxonomies.tags %}
+            <div class="post-tags">
+                tags:
+                {% for tag in page.taxonomies.tags %}
+                    <a href="{{ get_taxonomy_url(kind="tags", name=tag) }}">#{{ tag }}</a>
+                {% endfor %}
+            </div>
+        {% endif %}
+        {% if page.earlier or page.later or page.lighter or page.heavier %}
+            <div class="post-nav">
+                {% if page.earlier %}
+                    <a class="previous" href="{{ page.earlier.permalink }}">‹ {{ page.earlier.title }}</a>
+                {% endif %}
+                {% if page.later %}
+                    <a class="next" href="{{ page.later.permalink }}">{{ page.later.title }} ›</a>
+                {% endif %}
+                {% if page.lighter %}
+                    <a class="previous" href="{{ page.lighter.permalink }}">‹ {{ page.lighter.title }}</a>
+                {% endif %}
+                {% if page.heavier %}
+                    <a class="next" href="{{ page.heavier.permalink }}">{{ page.heavier.title }} ›</a>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+{% endmacro content %}
+
 {% macro content(page) %}
 <main>
     <article>
@@ -117,19 +146,8 @@
         <section class="body">
             {{ page.content | safe }}
         </section>
-
-        {% if page.taxonomies and page.taxonomies.tags %}
-            <div class="post-tags">
-                <nav class="nav tags">
-                    <ul class="tags">
-                        {% for tag in page.taxonomies.tags %}
-                            <li><a href={{ get_taxonomy_url(kind='tags', name=tag) | safe }}>{{ tag }}</a></li>
-                        {% endfor %}
-                    </ul>
-                </nav>
-            </div>
-        {% endif %}
-
     </article>
 </main>
 {% endmacro content %}
+
+{}

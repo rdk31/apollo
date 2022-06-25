@@ -1,0 +1,41 @@
+.post-footer {
+  margin-top: 20px;
+  border-top: 1px solid #e6e6e6;
+
+  &:after {
+      clear: both;
+      height: 0;
+      width: 100%;
+      content: '';
+      display: block;
+  }
+}
+
+.post-nav {
+  margin: 1rem 0;
+}
+
+.next, .previous {
+  font-weight: 600;
+  font-size: 20px;
+  transition: transform 0.3s ease-out;
+  margin-bottom: 5px;
+
+  &:hover {
+    color: var(--hover-color);
+  }
+}
+
+.next {
+  float: right;
+  &:hover {
+    transform: translateX(4px);
+  }
+}
+
+.previous {
+  float: left;
+  &:hover {
+    transform: translateX(-4px);
+  }
+}

@@ -1,12 +1,9 @@
-.tags li::before {
-  content: "🏷 ";
-}
+.post-tags {
+  padding: 15px 0;
 
-.tags a {
-  border-bottom: 3px solid var(--primary-color);
-}
-
-.tags a:hover {
-  color: var(--hover_color);
-  background-color: var(--primary-color);
+  a {
+    margin-right: 15px;
+    color: var(--primary-color);
+    word-break: break-all;
+  }
 }
